@@ -25,7 +25,7 @@ public class OrderService {
     public Order createOrder(Order order) throws JsonProcessingException {
         Order saved = orderRepository.save(order);
         String message = objectMapper.writeValueAsString(saved);
-        kafkaTemplate.send("orders", saved.getId().toString(), message);
+        kafkaTemplate.send("order-created", saved.getId().toString(), message);
         return saved;
     }
 

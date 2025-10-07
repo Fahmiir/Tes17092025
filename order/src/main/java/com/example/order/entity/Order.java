@@ -14,6 +14,7 @@ public class Order {
     private int quantity;
     private double totalAmount;
     private String status = "CREATED";
+    private String orderId;
 
     public Long getId() {
         return id;
@@ -53,5 +54,13 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 }

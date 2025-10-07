@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.persistence.criteria.Order;
+import org.springframework.data.domain.jaxb.SpringDataJaxb;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class PaymentListener {
 
     @KafkaListener(topics = "order-created", groupId = "payment-group")
     public void consume(OrderDTO event) {
+
         System.out.println("Received Order Event: " + event.getOrderId());
 
         // Simulasi proses pembayaran
