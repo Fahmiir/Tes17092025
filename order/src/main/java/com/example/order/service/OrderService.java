@@ -8,6 +8,8 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.cache.annotation.Cacheable;
 
+import java.util.List;
+
 @Service
 public class OrderService {
 
@@ -33,6 +35,10 @@ public class OrderService {
     @Cacheable(value= "order", key= "#id")
     public Order getOrder(Long id) {
         return orderRepository.findById(id).orElseThrow();
+    }
+
+    public List<Object[]> findTotalAmountAndStatus(){
+        return orderRepository.findTotslSmoundAndOrderStatus();
     }
 
 }
